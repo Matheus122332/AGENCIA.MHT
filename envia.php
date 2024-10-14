@@ -1,19 +1,34 @@
 <?php
-    $nome = addcslashes($_POST['nome']);
-    $email = addcslashes($_POST['email']);
-    $celular = addcslashes($_POST['celular']);
-    $mensagem = addcslashes($_POST['mensagem']);
+  //Variáveis
+  $nome = $_POST['nome'];
+  $email = $_POST['email'];
+  $celular = $_POST['celular'];
+  $mensagem = $_POST['mensagem'];
+  $data_envio = date('d/m/Y');
+  $hora_envio = date('H:i:s');
 
-    $para = "matheushenriquebrito1999@gmail.com";
-    $assunto = "Coleta de dados - AGÊNCIA MHT";
+  //Campo E-mail
+  $arquivo = "
+    <html>
+      <p><b>Nome: </b>$nome</p>
+      <p><b>E-mail: </b>$email</p>
+      <p><b>Celular: </b>$celular</p>
+      <p><b>Mensagem: </b>$mensagem</p>
+      <p>Este e-mail foi enviado em <b>$data_envio</b> às <b>$hora_envio</b></p>
+    </html>
+  ";
+  
+  //Emails para quem será enviado o formulário
+  $destino = "matheushenriquebrito1999@gmail.com";
+  $assunto = "Coleta de dados - AGÊNCIA MHT";
 
-    $corpo = "Nome: ".$nome."\n"."E-mail: ".$email."\n"."Celular: ".$celular."\n"."Mensagem: ".$mensagem;
+  //Este sempre deverá existir para garantir a exibição correta dos caracteres
+  $headers  = "MIME-Version: 1.0\n";
+  $headers .= "Content-type: text/html; charset=iso-8859-1\n";
+  $headers .= "From: $nome <$email>";
 
-    $cabeca = "From: matheushenriquesuporte@gmail.com"."\n"."Reply-to: ".$email."\n"."X=Mailer.PHP/".phpversion();
-
-    if (mail($para, $assunto, $corpo, $cabeca)) {
-        echo("E-mail enviado com sucesso!");
-    }else{
-        echo("Houve um erro ao enviar o email!");
-    }
+  //Enviar
+  mail($destino, $assunto, $arquivo, $headers);
+  
+  echo "<meta http-equiv='refresh' content='10;URL=../contato.html'>";
 ?>
