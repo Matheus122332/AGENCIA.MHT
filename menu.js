@@ -27,16 +27,16 @@ document.getElementById('celular').addEventListener('input', function(e) {
     e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
 });
 
-document.getElementById('email').addEventListener('input', function() {
-    const email = this.value;
-    const emailError = document.getElementById('email-error');
-    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+ document.getElementById('email').addEventListener('input', function() {
+        const email = this.value;
+        const emailError = document.getElementById('email-error');
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (emailPattern.test(email)) {
-        emailError.style.display = 'none';
-        this.setCustomValidity('');
-    } else {
-        emailError.style.display = 'inline';
-        this.setCustomValidity('Por favor, insira um e-mail válido.');
-    }
-});
+        if (emailPattern.test(email)) {
+            emailError.style.display = 'none';
+            this.setCustomValidity('');
+        } else {
+            emailError.style.display = 'inline';
+            this.setCustomValidity('Por favor, insira um e-mail válido.');
+        }
+    });
