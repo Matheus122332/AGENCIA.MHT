@@ -12,14 +12,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              "Celular: " . $celular . "\n" . 
              "Mensagem: " . $mensagem;
     
-    $cabeca = "From: matheushenriquesuporte@gmail.com" . "\r\n" .
+    $cabeca = "From: matheushenrisuporte@gmail.com" . "\r\n" .
               "Reply-To: " . $email . "\r\n" .
               "X-Mailer: PHP/" . phpversion();
     
     if (mail($para, $assunto, $corpo, $cabeca)) {
         echo "E-mail enviado com sucesso!";
     } else {
-        error_log("Mail failed to send to $para.");
+        error_log("Falha ao enviar o e-mail para $para.");
         echo "Houve um erro ao enviar o e-mail!";
     }
 } else {
