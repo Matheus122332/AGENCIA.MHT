@@ -12,7 +12,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
              "Celular: " . $celular . "\n" . 
              "Mensagem: " . $mensagem;
     
-    $cabeca = "From: matheushenrisuporte@gmail.com" . "\r\n" .
+    $cabeca = "From: matheushenriquesuporte@gmail.com" . "\r\n" .
               "Reply-To: " . $email . "\r\n" .
               "X-Mailer: PHP/" . phpversion();
     
