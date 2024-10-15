@@ -1,8 +1,4 @@
 <?php
-// Habilitar exibição de erros
-ini_set('display_errors', 1);
-error_reporting(E_ALL);
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $nome = filter_var($_POST['nome'], FILTER_SANITIZE_STRING);
     $email = filter_var($_POST['email'], FILTER_SANITIZE_EMAIL);
@@ -29,4 +25,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 } else {
     echo "Método de requisição inválido!";
 }
-?>
